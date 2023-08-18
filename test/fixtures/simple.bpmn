@@ -1,37 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="sid-38422fae-e03e-43a3-bef4-bd33b32041b2" targetNamespace="http://bpmn.io/bpmn" exporter="Camunda Modeler" exporterVersion="4.8.0-nightly.20210427">
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" id="sid-38422fae-e03e-43a3-bef4-bd33b32041b2" targetNamespace="http://bpmn.io/bpmn" exporter="Camunda Modeler" exporterVersion="4.8.0-nightly.20210427">
   <process id="Process_1" isExecutable="false">
+    <extensionElements>
+      <zeebe:userTaskForm id="userTaskForm_3ro1ti3">{
+  "components": [
+    {
+      "label": "Number",
+      "type": "number",
+      "layout": {
+        "row": "Row_0tsd0f1",
+        "columns": null
+      },
+      "id": "Field_164bcb2",
+      "key": "field_1fnp0cx"
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Date",
+      "label": "Date time",
+      "type": "datetime",
+      "layout": {
+        "row": "Row_1bs2pig",
+        "columns": null
+      },
+      "id": "Field_0omfycp",
+      "key": "field_00hkuwr"
+    },
+    {
+      "values": [
+        {
+          "label": "Value",
+          "value": "value"
+        }
+      ],
+      "label": "Checklist",
+      "type": "checklist",
+      "layout": {
+        "row": "Row_18bs28r",
+        "columns": null
+      },
+      "id": "Field_1fwd3ud",
+      "key": "field_0rwy7u1"
+    },
+    {
+      "values": [
+        {
+          "label": "Value",
+          "value": "value"
+        }
+      ],
+      "label": "Tag list",
+      "type": "taglist",
+      "layout": {
+        "row": "Row_0ud8bne",
+        "columns": null
+      },
+      "id": "Field_1tlmayd",
+      "key": "field_0k6y008"
+    },
+    {
+      "text": "# Text",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1qg1hmo",
+        "columns": null
+      },
+      "id": "Field_16lzl2u"
+    }
+  ],
+  "type": "default",
+  "id": "Form_0hmakep",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.0-nightly.20230815"
+  },
+  "schemaVersion": 10
+}</zeebe:userTaskForm>
+    </extensionElements>
     <startEvent id="StartEvent_1" name="start">
       <outgoing>Flow_0g16wxm</outgoing>
     </startEvent>
-    <task id="Task_1" name="task">
-      <incoming>Flow_0g16wxm</incoming>
-      <outgoing>Flow_0vce4r4</outgoing>
-    </task>
     <sequenceFlow id="Flow_0g16wxm" sourceRef="StartEvent_1" targetRef="Task_1" />
     <endEvent id="EndEvent_1" name="end">
       <incoming>Flow_0vce4r4</incoming>
     </endEvent>
     <sequenceFlow id="Flow_0vce4r4" sourceRef="Task_1" targetRef="EndEvent_1" />
+    <userTask id="Task_1" name="task">
+      <extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_3ro1ti3" />
+      </extensionElements>
+      <incoming>Flow_0g16wxm</incoming>
+      <outgoing>Flow_0vce4r4</outgoing>
+    </userTask>
   </process>
   <bpmndi:BPMNDiagram id="BpmnDiagram_1">
     <bpmndi:BPMNPlane id="BpmnPlane_1" bpmnElement="Process_1">
-      <bpmndi:BPMNEdge id="Flow_0vce4r4_di" bpmnElement="Flow_0vce4r4">
-        <di:waypoint x="340" y="120" />
-        <di:waypoint x="392" y="120" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0g16wxm_di" bpmnElement="Flow_0g16wxm">
-        <di:waypoint x="188" y="120" />
-        <di:waypoint x="240" y="120" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="StartEvent_1y45yut_di" bpmnElement="StartEvent_1">
         <omgdc:Bounds x="152" y="102" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <omgdc:Bounds x="159" y="145" width="22" height="14" />
         </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0fnuvqb_di" bpmnElement="Task_1">
-        <omgdc:Bounds x="240" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0mdnzgj_di" bpmnElement="EndEvent_1">
         <omgdc:Bounds x="392" y="102" width="36" height="36" />
@@ -39,6 +110,17 @@
           <omgdc:Bounds x="401" y="145" width="19" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0qu06ju_di" bpmnElement="Task_1">
+        <omgdc:Bounds x="240" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0g16wxm_di" bpmnElement="Flow_0g16wxm">
+        <di:waypoint x="188" y="120" />
+        <di:waypoint x="240" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0vce4r4_di" bpmnElement="Flow_0vce4r4">
+        <di:waypoint x="340" y="120" />
+        <di:waypoint x="392" y="120" />
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </definitions>
