@@ -14,8 +14,12 @@ import {
   BpmnPropertiesPanelModule,
   BpmnPropertiesProviderModule,
   ZeebePropertiesProviderModule,
-  ZeebeDescriptionProvider as DescriptionProvider
+  ZeebeTooltipProvider as DescriptionProvider
 } from 'bpmn-js-properties-panel';
+
+import {
+  ZeebeVariableResolverModule
+} from '@bpmn-io/variable-resolver';
 
 import ZeebeBehaviorsModule from 'camunda-bpmn-js-behaviors/lib/camunda-cloud';
 
@@ -58,6 +62,7 @@ describe('<Example>', function() {
         BpmnPropertiesPanelModule,
         BpmnPropertiesProviderModule,
         ZeebePropertiesProviderModule,
+        ZeebeVariableResolverModule,
         ExampleModule
       ],
       moddleExtensions = {
