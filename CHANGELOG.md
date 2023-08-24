@@ -6,4 +6,6 @@ All notable changes to [@bpmn-io/form-variable-provider](https://github.com/bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
-* `FEAT`: initial release - support local camunda forms
+## 1.0.0
+
+* `FEAT`: initial release - support local camunda forms ([#1](https://github.com/bpmn-io/form-variable-provider/pull/1))
