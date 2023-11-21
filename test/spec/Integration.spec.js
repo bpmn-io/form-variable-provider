@@ -13,7 +13,7 @@ import FormVariableProvider from 'lib/';
 
 import placeholderXML from '../fixtures/placeholder.bpmn';
 import startFormXML from '../fixtures/start-form.bpmn';
-
+import sinon from 'sinon';
 
 
 describe('<Form Extractor>', function() {
@@ -205,6 +205,75 @@ describe('<Form Extractor>', function() {
 
       // then
       expect(variables).to.variableEqual([ ]);
+    });
+
+  });
+
+
+  describe('additional extractors', async function() {
+
+    it('should allow async extractors', async function() {
+
+      // given
+      let clock = sinon.useFakeTimers();
+
+      const form = `{
+          "components": [
+            {
+              "label": "Number",
+              "type": "number",
+              "layout": {
+                "row": "Row_0tsd0f1",
+                "columns": null
+              },
+              "id": "Field_164bcb2",
+              "key": "Number_1"
+            },
+            {
+              "label": "Text field",
+              "type": "textfield",
+              "layout": {
+                "row": "Row_1l0lwcs",
+                "columns": null
+              },
+              "id": "Field_1b97d86",
+              "key": "Text_1"
+            }
+          ],
+          "type": "default",
+          "id": "Form_0",
+          "schemaVersion": 10
+        }`;
+
+      await createModelerWithForm('');
+      const modeler = getBpmnJS();
+
+      const eventBus = modeler.get('eventBus');
+      const elementRegistry = modeler.get('elementRegistry');
+      const variableResolver = modeler.get('variableResolver');
+
+      const task = elementRegistry.get('Task_1');
+
+      const MockProvider = ({ element }) => {
+        if (element.id === task.id) {
+          return new Promise(resolve => setTimeout(resolve(form), 100));
+        }
+      };
+
+      eventBus.on('formVariableProvider.getFormSchema', MockProvider);
+
+      // when
+      const variables = await variableResolver.getVariablesForElement(task);
+      await clock.tick(1000);
+
+      // then
+      expect(variables).to.variableEqual([
+        { name: 'Number_1', info: 'Returned from Form in Form Task' },
+        { name: 'Text_1', info: 'Returned from Form in Form Task' }
+      ]);
+
+      clock.restore();
+
     });
 
   });
