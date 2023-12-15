@@ -10,7 +10,7 @@
     "dev": "npm test -- --auto-watch --no-single-run",
     "start": "cross-env SINGLE_START=true npm run dev",
     "build": "rollup -c",
-    "build:watch": "rollup -cw",
+    "build:watch": "npm run build -- -w",
     "prepare": "run-s build"
   },
   "keywords": [
