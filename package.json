@@ -36,7 +36,7 @@
   ],
   "module": "dist/index.es.js",
   "devDependencies": {
-    "@bpmn-io/form-js": "^1.4.1",
+    "@bpmn-io/form-js": "^1.6.0",
     "@bpmn-io/variable-resolver": "^1.2.0",
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-json": "^6.0.0",
