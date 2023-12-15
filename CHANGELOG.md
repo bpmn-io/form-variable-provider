@@ -6,6 +6,11 @@ All notable changes to [@bpmn-io/form-variable-provider](https://github.com/bpmn
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.3.0
+
+* `DEPS`: support `form-js@1.6.0`
+* `DEPS`: support `bpmn-js@16.0.0`
+
 ## 1.2.0
 
 * `FEAT`: support async form providers ([#4](https://github.com/bpmn-io/form-variable-provider/pull/4))
