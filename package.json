@@ -42,7 +42,7 @@
     "@bpmn-io/variable-resolver": "^1.4.0",
     "@rollup/plugin-commonjs": "^29.0.0",
     "@rollup/plugin-json": "^6.1.0",
-    "@testing-library/preact": "^3.2.3",
+    "@testing-library/preact": "^3.2.4",
     "babel-loader": "^10.0.0",
     "babel-plugin-istanbul": "^7.0.1",
     "bpmn-js": "^18.12.0",
