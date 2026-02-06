@@ -1,6 +1,9 @@
 # @bpmn-io/form-variable-provider
 
-A variable provider that extracts variables from a linked camunda form.
+> [!NOTE]
+> This supports a deprecated Camunda feature.
+
+A variable provider that extracts variables from an embedded Camunda 8 form.
 
 ## Usage
 

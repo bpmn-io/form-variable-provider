@@ -1,7 +1,7 @@
 {
   "name": "@bpmn-io/form-variable-provider",
   "version": "1.3.0",
-  "description": "",
+  "description": "A variable provider for Camunda 8 embedded forms",
   "main": "dist/index.js",
   "scripts": {
     "all": "run-s lint test build",
