@@ -1,4 +1,9 @@
 import {
+  expect,
+  use as chaiUse
+} from 'chai';
+
+import {
   act,
   fireEvent
 } from '@testing-library/preact';
@@ -23,7 +28,7 @@ import Modeler from 'bpmn-js/lib/Modeler';
 
 let PROPERTIES_PANEL_CONTAINER;
 
-global.chai.use(function(chai, utils) {
+chaiUse(function(chai, utils) {
 
   utils.addMethod(chai.Assertion.prototype, 'jsonEqual', function(comparison) {
 

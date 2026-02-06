@@ -1,3 +1,5 @@
+import { expect } from 'chai';
+
 import {
   bootstrapModeler,
   getBpmnJS
@@ -13,7 +15,6 @@ import FormVariableProvider from 'lib/';
 
 import placeholderXML from '../fixtures/placeholder.bpmn';
 import startFormXML from '../fixtures/start-form.bpmn';
-import sinon from 'sinon';
 
 
 describe('<Form Extractor>', function() {
@@ -215,8 +216,6 @@ describe('<Form Extractor>', function() {
     it('should allow async extractors', async function() {
 
       // given
-      let clock = sinon.useFakeTimers();
-
       const form = `{
           "components": [
             {
@@ -264,15 +263,12 @@ describe('<Form Extractor>', function() {
 
       // when
       const variables = await variableResolver.getVariablesForElement(task);
-      await clock.tick(1000);
 
       // then
       expect(variables).to.variableEqual([
         { name: 'Number_1', info: 'Returned from Form in Form Task' },
         { name: 'Text_1', info: 'Returned from Form in Form Task' }
       ]);
-
-      clock.restore();
 
     });
 
