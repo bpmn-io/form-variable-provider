@@ -211,7 +211,7 @@ describe('<Form Extractor>', function() {
   });
 
 
-  describe('additional extractors', async function() {
+  describe('additional extractors', function() {
 
     it('should allow async extractors', async function() {
 
