@@ -8,7 +8,7 @@ ___Note:__ Yet to be released changes appear here._
 
 ## 1.4.0
 
-* `DEPS`: support `form-js@2.0.0`
+* `DEPS`: update to `form-js@2.0.0`
 
 ## 1.3.0
 
